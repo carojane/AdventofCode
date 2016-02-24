@@ -13,7 +13,7 @@ array.each do |a|
 	houses << [x, y]
 end
 
-p houses.uniq!.count
+puts "3.a: " + houses.uniq!.count.to_s
 
 x = 0
 y = 0
@@ -29,7 +29,7 @@ array.each_with_index do |a, index|
 		y += 1 if a == ">"
 		y -= 1 if a == "<"
 		houses_with_robo << [x, y]
-	else 
+	else
 		rx += 1 if a == "^"
 		rx -= 1 if a == "v"
 		ry += 1 if a == ">"
@@ -37,4 +37,4 @@ array.each_with_index do |a, index|
 		houses_with_robo << [rx, ry]
 	end
 end
-p houses_with_robo.uniq!.count
+puts "3.b: " + houses_with_robo.uniq!.count.to_s

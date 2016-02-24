@@ -14,11 +14,11 @@ source.each do |a|
 	sides << 2*a[0]*a[1]
 	sides << 2*a[1]*a[2]
 	sides << 2*a[2]*a[0]
-	paper += sides.inject(:+) 
+	paper += sides.inject(:+)
 	paper += sides.min/2
 	ribbon += 2*a[0]+2*a[1]
 	ribbon += a[0]*a[1]*a[2]
 end
 
-p paper
-p ribbon
+puts "2.a: " + paper.to_s
+puts "2.b: " + ribbon.to_s

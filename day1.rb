@@ -1,9 +1,9 @@
 floor = 0
 basement = []
-source = ")())())"
-array = source.split("")
+f = File.open("./day1input.txt")
+source = f.read.split("")
 
-array.each_with_index do |p, index|
+source.each_with_index do |p, index|
 if p == "("
 floor += 1
 else
@@ -12,5 +12,5 @@ end
 basement << index+1 if floor == -1
 end
 
-p floor
-p basement[0]
+puts "1.a: " + floor.to_s
+puts "1.b: " + basement[0].to_s
