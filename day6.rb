@@ -1,10 +1,9 @@
+require 'pry'
 def parse(line)
-  l = line.split(" ")
-  l.delete("turn")
-  cord1 = l[1].split(",")
-  cord2 = l[3].split(",")
-  x_cords = ((cord1[0].to_i)..(cord2[0].to_i)).to_a
-  y_cords = ((cord1[1].to_i)..(cord2[1].to_i)).to_a
+  l = line.split(/\W/)
+  l.delete "turn"
+  x_cords = ((l[1].to_i)..(l[4].to_i)).to_a
+  y_cords = ((l[2].to_i)..(l[5].to_i)).to_a
   coordinates = x_cords.product(y_cords)
   output = [coordinates,l[0]]
 end
@@ -36,6 +35,10 @@ directions.each do |l|
   end
 end
 
+count = 0
+lights.each {|l| count += l.count("on")}
+puts "6.a: " + count.to_s
+
 light_bright = Array.new(1000) {Array.new(1000,0)}
 
 directions.each do |l|
@@ -52,10 +55,6 @@ directions.each do |l|
     end
   end
 end
-
-count = 0
-lights.each {|l| count += l.count("on")}
-puts "6.a: " + count.to_s
 
 brightness = 0
 light_bright.each {|l| l.each {|a| brightness += a}}
