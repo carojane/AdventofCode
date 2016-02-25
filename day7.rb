@@ -1,5 +1,3 @@
-require 'pry'
-
 f = File.open("./day7input.txt")
 directions = {}
 f.each do |l|
