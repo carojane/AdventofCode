@@ -1,4 +1,3 @@
-require 'pry'
 def parse(line)
   l = line.split(/\W/)
   l.delete "turn"
