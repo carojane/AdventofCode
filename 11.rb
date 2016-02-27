@@ -1,4 +1,4 @@
-require 'pry'
+def day11
   def main(word)
     alph
     @word = word
@@ -70,8 +70,8 @@ require 'pry'
     @word.scan(/(.)\1/).count > 1
   end
 
-input = "hxbxwxba"
-a = main(input)
-
-  puts "11.a: " + a
-  puts "11.b: " + main(a)
+  input = "hxbxwxba"
+  a = main(input)
+  [a,main(a.clone)]
+end
+puts day11

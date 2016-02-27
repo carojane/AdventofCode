@@ -1,24 +1,19 @@
-paper = 0
-ribbon = 0
-source = []
-source_array = []
-source_string = ""
+def day02
+  paper = 0
+  ribbon = 0
+  source = []
 
-f = File.open("./day2input.txt")
-source_ary = f.read.split("\n")
-source_ary.each {|s| source << s.split("x").map(&:to_i)}
+  File.foreach("./day2input.txt") do |l|
+    source << l.split("x").map(&:to_i)
+  end
 
-source.each do |a|
-	a.sort!
-	sides = []
-	sides << 2*a[0]*a[1]
-	sides << 2*a[1]*a[2]
-	sides << 2*a[2]*a[0]
-	paper += sides.inject(:+)
-	paper += sides.min/2
-	ribbon += 2*a[0]+2*a[1]
-	ribbon += a[0]*a[1]*a[2]
+  source.each do |a|
+  	a.sort!
+  	sides = a.combination(2).to_a
+    sides.map! {|x| x.reduce(:*) *2}
+  	paper += sides.reduce(:+) + sides.min/2
+  	ribbon += 2*a[0]+2*a[1] + a.reduce(:*)
+  end
+
+  return [paper.to_s, ribbon.to_s]
 end
-
-puts "02.a: " + paper.to_s
-puts "02.b: " + ribbon.to_s

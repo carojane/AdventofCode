@@ -1,40 +1,47 @@
-f = File.open("./day3input.txt")
-array = f.read.split("")
+require 'pry'
 
-x = 0
-y = 0
-houses = [[x,y]]
+def day03
+	source = File.read("./day3input.txt").split("")
 
-array.each do |a|
-	x += 1 if a == "^"
-	x -= 1 if a == "v"
-	y += 1 if a == ">"
-	y -= 1 if a == "<"
-	houses << [x, y]
-end
+  def move(c,a)
+  	x = c[0]
+  	y = c[1]
+    x += 1 if a == "^"
+    x -= 1 if a == "v"
+    y += 1 if a == ">"
+    y -= 1 if a == "<"
+    [x,y]
+  end
 
-puts "03.a: " + houses.uniq!.count.to_s
+	def test_a(array)
+		cords = [0,0]
+		houses = [cords]
 
-x = 0
-y = 0
-rx = 0
-ry = 0
-houses = [[x,y]]
-houses_with_robo = [[x,y]]
+		array.each do |a|
+			cords = move(cords,a)
+			houses << cords
+		end
 
-array.each_with_index do |a, index|
-	if index % 2 == 0
-		x += 1 if a == "^"
-		x -= 1 if a == "v"
-		y += 1 if a == ">"
-		y -= 1 if a == "<"
-		houses_with_robo << [x, y]
-	else
-		rx += 1 if a == "^"
-		rx -= 1 if a == "v"
-		ry += 1 if a == ">"
-		ry -= 1 if a == "<"
-		houses_with_robo << [rx, ry]
+		houses.uniq!.count.to_s
 	end
+
+	def test_b(array)
+		cords = [0,0]
+		rcords = [0,0]
+		houses_with_robo = [cords]
+
+		array.each_with_index do |a, index|
+			if index % 2 == 0
+				cords = move(cords,a)
+				houses_with_robo << cords
+			else
+				rcords = move(rcords,a)
+				houses_with_robo << rcords
+			end
+		end
+
+		houses_with_robo.uniq!.count.to_s
+	end
+
+	[test_a(source), test_b(source)]
 end
-puts "03.b: " + houses_with_robo.uniq!.count.to_s
