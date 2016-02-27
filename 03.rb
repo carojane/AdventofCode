@@ -13,7 +13,7 @@ array.each do |a|
 	houses << [x, y]
 end
 
-puts "3.a: " + houses.uniq!.count.to_s
+puts "03.a: " + houses.uniq!.count.to_s
 
 x = 0
 y = 0
@@ -37,4 +37,4 @@ array.each_with_index do |a, index|
 		houses_with_robo << [rx, ry]
 	end
 end
-puts "3.b: " + houses_with_robo.uniq!.count.to_s
+puts "03.b: " + houses_with_robo.uniq!.count.to_s

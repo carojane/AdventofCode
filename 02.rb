@@ -20,5 +20,5 @@ source.each do |a|
 	ribbon += a[0]*a[1]*a[2]
 end
 
-puts "2.a: " + paper.to_s
-puts "2.b: " + ribbon.to_s
+puts "02.a: " + paper.to_s
+puts "02.b: " + ribbon.to_s
