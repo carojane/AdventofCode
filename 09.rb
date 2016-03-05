@@ -1,15 +1,11 @@
 def day09
-  def parse(l)
-    l = l.split(" ")
-    line = [l[0],l[2],l[4].to_i]
-  end
-
   routes = []
   stops = []
 
   f = File.open("./day9input.txt")
   f.each do |l|
-    line = parse(l)
+    l = l.split(" ")
+    line = [l[0],l[2],l[4].to_i]
     stops << line[0]
     stops << line[1]
     routes << [line[0],line[1],line[2]]

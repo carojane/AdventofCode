@@ -74,4 +74,3 @@ def day11
   a = main(input)
   [a,main(a.clone)]
 end
-puts day11

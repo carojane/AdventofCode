@@ -22,11 +22,12 @@ answer = ""
     ans = a[x]
     line = (2*n.to_i)-2+x
       if correct[line] == ans
-        print ".".green
+        print "*".yellow
         number_correct += 1
       else
         print "*".red
       end
+    ans.red if !correct[line] == ans
     answer += n + (x == 0 ? ".a: " : ".b: ") + ans + "\n"
   end
 
@@ -36,7 +37,7 @@ answer = ""
 end
 
 puts "\n"
-puts number_correct.to_s + "/" + total.to_s
+puts number_correct.to_s + "/" + total.to_s + " Correct Answers"
 puts "\n"
 puts "Answers:\n" + answer
 
