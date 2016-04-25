@@ -1,4 +1,3 @@
-require 'pry'
 def day13
   def max_hap(guests)
     count = guests.count
